@@ -13,6 +13,7 @@ namespace _5s.Model
         public string RoomId { get; set; }
         public string? Standard {get;set; }
         public DateTime? ViewedDate {get;set; }
+        public DateTime? CalibrationDate {get;set;}
         public DateTime? AssessedDate {get;set; }
     }
 }

@@ -76,7 +76,24 @@ namespace _5s.Controllers
                 var dbSpace = await _spaceService.GetSpaceById(id);
                 if (dbSpace == null)
                     return NotFound();
-                var updatedSpace = await _spaceService.UpdateSpace(id, space);
+                var updatedSpace = await _spaceService.UpdateSpace(id,space, dbSpace);
+                return Ok(updatedSpace);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+         [HttpPut("{id}/CalibrationDate", Name = "UpdateSpaceCalibrationDate")]
+        public async Task<IActionResult> UpdateSpaceCalibrationDate(string id)
+        {
+            try
+            {
+                var dbSpace = await _spaceService.GetSpaceById(id);
+                if (dbSpace == null)
+                    return NotFound();
+                var updatedSpace = await _spaceService.UpdateCalibrationDate(id, dbSpace);
                 return Ok(updatedSpace);
             }
             catch (Exception ex)

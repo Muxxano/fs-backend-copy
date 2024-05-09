@@ -20,7 +20,7 @@ namespace _5s.Services
         /// </summary>
         /// <param name="id">id of exisiting rating</param>
         /// <returns>Return ratings detail</returns>
-        public Task<Ratings> GetRatingsById(string id);
+        public Task<IEnumerable<Ratings>> GetRatingsById(string id);
         // /// <summary>
         // /// Get Ratings by Name
         // /// </summary>

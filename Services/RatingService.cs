@@ -39,7 +39,7 @@ namespace _5s.Services
             return _repository.GetAllRatings();
         }
 
-        public async Task<Ratings> GetRatingsById(string id)
+        public async Task<IEnumerable<Ratings>> GetRatingsById(string id)
         {
             return await _repository.GetRatingsById(id);
         }

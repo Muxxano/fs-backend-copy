@@ -51,16 +51,16 @@ namespace _5s.Controllers
         }
 
         [HttpGet("{id}/ratings", Name = "GetRatingsById")]
-        public async Task<IActionResult> GetRatings(string id)
+        public async Task<IActionResult> GetRatingsById(string id)
         {
             try
             {
-                var rating = await _ratingsService.GetRatingsById(id);
-                if (rating == null)
+                var ratings = await _ratingsService.GetRatingsById(id);
+                if (ratings == null)
                 {
                     return NotFound();
                 }
-                return Ok(rating);
+                return Ok(ratings);
             }
             catch (Exception ex)
             {

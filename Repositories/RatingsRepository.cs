@@ -31,9 +31,9 @@ namespace _5s.Repositories
             return await _ratingsCollection.Find(_ => true).ToListAsync();
         }
 
-        public async Task<Ratings> GetRatingsById(string id)
+        public async Task<IEnumerable<Ratings>> GetRatingsById(string id)
         {
-            return await _ratingsCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+            return await _ratingsCollection.Find(x => x.SpaceId == id).ToListAsync();
         }
 
         // public async Task<Ratings> GetRatingsByName(string name)

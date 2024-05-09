@@ -33,7 +33,7 @@ namespace _5s.Services
         /// <param name="id">Id of an exising space</param>
         /// <param name="updatedSpace">new Space details</param>
         /// <returns>Return Id of newly updated Space</returns>
-        public Task<string> UpdateSpace(string id, Space updatedSpace);
+        public Task<string> UpdateSpace(string id, Space space, Space updated);
         /// <summary>
         /// Delete space
         /// </summary>
@@ -43,5 +43,7 @@ namespace _5s.Services
         public Task<string> UpdateViewedDate(string id, Space space);
 
         public Task<string> UpdateAssessedDate(string id, Space space);
+
+        public Task<string> UpdateCalibrationDate(string id, Space space);
     }
 }

@@ -16,11 +16,11 @@ namespace _5s.Repositories
         /// <returns>Returns list of all Rating with details</returns>
         public Task<IEnumerable<Ratings>> GetAllRatings();
         /// <summary>
-        /// Gets Rating by Id
+        /// Gets Rating by Space Id
         /// </summary>
-        /// <param name="id">Rating Id</param>
+        /// <param name="id">Rating SpaceId</param>
         /// <returns>Returns Rating details</returns>
-        public Task<Ratings> GetRatingsById(string id);
+        public Task<IEnumerable<Ratings>> GetRatingsById(string id);
         // /// <summary>
         // /// Gets Rating By Name
         // /// </summary>

@@ -56,8 +56,16 @@ namespace _5s.Services
             return updated;
         }
 
-        public async Task<string> UpdateSpace(string id, Space updatedSpace)
+        public async Task<string> UpdateCalibrationDate(string id, Space space){
+            space.CalibrationDate = DateTime.Now;
+
+            var updated = await _spaceRepository.UpdateSpace(id, space);
+            return updated;
+        }
+
+        public async Task<string> UpdateSpace(string id, Space space, Space updated)
         {
+<<<<<<< Updated upstream
             var UpdatedModel = new Space
             {
                 Id = id,
@@ -67,8 +75,14 @@ namespace _5s.Services
             };
 
             var updated = await _spaceRepository.UpdateSpace(id, UpdatedModel);
+=======
+            space.Name = updated.Name;
+            space.Standard = updated.Standard;
 
-            return updated;
+            var result = await _spaceRepository.UpdateSpace(id, space);
+>>>>>>> Stashed changes
+
+            return result;
         }
     }
 }
