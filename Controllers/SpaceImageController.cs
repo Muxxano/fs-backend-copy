@@ -107,6 +107,29 @@ namespace _5s.Controllers
             }
         }
 
+        [HttpPut("{id}", Name = "UpdateSpaceImages")]
+        public async Task<IActionResult> UpdateSpaceImage(string id, [FromBody] List<SpaceImage> spaceImages)
+        {
+            try
+            {
+                foreach (var spaceImage in spaceImages)
+                {
+                    var dbSpace = await _spaceImageService.GetSpaceImageById(spaceImage.Id);
+                    if (dbSpace == null)
+                        return NotFound();
+
+                    var updatedSpace = await _spaceImageService.UpdateSpaceImage(spaceImage.Id, spaceImage);
+                }
+
+                return Ok(spaceImages);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+
 
 
         [HttpDelete]

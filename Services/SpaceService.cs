@@ -65,22 +65,11 @@ namespace _5s.Services
 
         public async Task<string> UpdateSpace(string id, Space space, Space updated)
         {
-<<<<<<< Updated upstream
-            var UpdatedModel = new Space
-            {
-                Id = id,
-                Name = updatedSpace.Name,
-                Standard = updatedSpace.Standard,
-                RoomId = updatedSpace.RoomId,
-            };
-
-            var updated = await _spaceRepository.UpdateSpace(id, UpdatedModel);
-=======
             space.Name = updated.Name;
             space.Standard = updated.Standard;
-
+            space.CalibrationDate = updated.CalibrationDate;
+            
             var result = await _spaceRepository.UpdateSpace(id, space);
->>>>>>> Stashed changes
 
             return result;
         }

@@ -52,6 +52,29 @@ namespace _5s.Services
             return updated;
         }
 
+        public async Task<List<string>> UpdateSpaceImages(List<SpaceImage> spaceImages)
+        {
+            var updatedIds = new List<string>();
+
+            foreach (var updatedSpaceImage in spaceImages)
+            {
+                var updateSpaceImage = new SpaceImage
+                {
+                    SpaceId = updatedSpaceImage.SpaceId,
+                    Image = updatedSpaceImage.Image,
+                    ModifiedDate = DateTime.Now,
+                    ForType = updatedSpaceImage.ForType,
+                    Prediction = updatedSpaceImage.Prediction
+                };
+
+                var updatedId = await _spaceImageRepository.UpdateSpaceImage(updatedSpaceImage.Id, updateSpaceImage);
+                updatedIds.Add(updatedId);
+            }
+
+            return updatedIds;
+        }
+
+
         public async Task<SpaceImage> GetSpaceImageById(string id)
         {
             return await _spaceImageRepository.GetSpaceImageById(id);

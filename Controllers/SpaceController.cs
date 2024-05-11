@@ -76,7 +76,7 @@ namespace _5s.Controllers
                 var dbSpace = await _spaceService.GetSpaceById(id);
                 if (dbSpace == null)
                     return NotFound();
-                var updatedSpace = await _spaceService.UpdateSpace(id,space, dbSpace);
+                var updatedSpace = await _spaceService.UpdateSpace(id,dbSpace, space);
                 return Ok(updatedSpace);
             }
             catch (Exception ex)

@@ -41,7 +41,7 @@ namespace _5s.Repositories
         }
          public async Task<string> UpdateSpaceImage(string id, SpaceImage updatedSpaceImage)
         {
-          updatedSpaceImage.Id = id;
+            updatedSpaceImage.Id = id;
             
             // Perform the update without modifying the _id field
             var filter = Builders<SpaceImage>.Filter.Eq(x => x.Id, id);
