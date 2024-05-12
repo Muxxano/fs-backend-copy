@@ -31,9 +31,14 @@ namespace _5s.Repositories
             return await _commentCollection.Find(_ => true).ToListAsync();
         }
 
+        public async Task<IEnumerable<Comment>> GetCommentsById(string id)
+        {
+            return await _commentCollection.Find(x => x.RatingId == id).ToListAsync();
+        }
+
         public async Task<Comment> GetCommentById(string id)
         {
-            return await _commentCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+            return await _commentCollection.Find(x => x.RatingId == id).FirstOrDefaultAsync();
         }
 
         public async Task<string> UpdateComment(string id, Comment updatedComment)

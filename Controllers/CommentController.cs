@@ -70,6 +70,24 @@ namespace _5s.Controllers
             }
         }
 
+        [HttpGet("{id}/comments", Name = "GetCommentsById")]
+        public async Task<IActionResult> GetComments(string id)
+        {
+            try
+            {
+                var comment = await _commentService.GetCommentsById(id);
+                if (comment == null)
+                {
+                    return NotFound();
+                }
+                return Ok(comment);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
         [HttpPut("{id}", Name = "UpdateComment")]
         public async Task<IActionResult> UpdateComment(string id, [FromBody] Comment updateComment)
         {

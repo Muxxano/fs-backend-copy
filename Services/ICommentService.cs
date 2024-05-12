@@ -15,12 +15,19 @@ namespace _5s.Services
         /// </summary>
         /// <returns>Returns a list of all comment with details</returns>
         public Task<IEnumerable<Comment>> GetAllComment();
+
         /// <summary>
         /// Get comment by Id
         /// </summary>
         /// <param name="id">Id of Comment</param>
         /// <returns>Return a certain Comment detail</returns>
         public Task<Comment> GetCommentById(string id);
+        /// <summary>
+        /// Get comment by Id
+        /// </summary>
+        /// <param name="id">Id of Comment</param>
+        /// <returns>Return a certain Comment detail</returns>
+        public Task<IEnumerable<Comment>> GetCommentsById(string id);
         /// <summary>
         /// Update an existing comment
         /// </summary>

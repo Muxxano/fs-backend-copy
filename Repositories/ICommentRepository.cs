@@ -22,6 +22,12 @@ namespace _5s.Repositories
         /// <returns>Returns a Comment with Details</returns>
         public Task<Comment> GetCommentById(string id);
         /// <summary>
+        /// Get a Comment by Id
+        /// </summary>
+        /// <param name="id">Comment Id</param>
+        /// <returns>Returns a Comment with Details</returns>
+        public Task<IEnumerable<Comment>> GetCommentsById(string id);
+        /// <summary>
         /// Update an Existing Comment
         /// </summary>
         /// <param name="id">Comment Id</param>

@@ -107,8 +107,8 @@ namespace _5s.Controllers
             }
         }
 
-        [HttpPut("{id}", Name = "UpdateSpaceImages")]
-        public async Task<IActionResult> UpdateSpaceImage(string id, [FromBody] List<SpaceImage> spaceImages)
+        [HttpPut("{id}/all", Name = "UpdateSpaceImages")]
+        public async Task<IActionResult> UpdateSpaceImages(string id, [FromBody] List<SpaceImage> spaceImages)
         {
             try
             {

@@ -38,11 +38,16 @@ namespace _5s.Services
             return await _commentRepository.GetAllComment();
         }
 
+        public async Task<IEnumerable<Comment>> GetCommentsById(string id)
+        {
+            return await _commentRepository.GetCommentsById(id);
+        }
+
+
         public async Task<Comment> GetCommentById(string id)
         {
             return await _commentRepository.GetCommentById(id);
         }
-
         public async Task<string> UpdateComment(string id,Comment updateComment)
         {
             var updatedComment = new Comment
